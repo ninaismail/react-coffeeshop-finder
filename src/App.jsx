@@ -1,15 +1,18 @@
 import './App.css'
-import MyGoogleMap from './components/GoogleMap'
 import PropertiesForm from './components/PropertiesForm'
+import ProductList from './components/Products/ProductList';
 
+import { getProducts } from './helpers/api';
+import Slider from './components/UI/Layouts/Slider';
 function App() {
-
+const products = getProducts()
   return (
     <>
-      <h1 className='text-2xl text-center text-[#a48a5b] my-5'>Find the closest coffee shop that matches your vibe!</h1>
-      <div className='w-full flex justify-center items-center'>
-      <MyGoogleMap />
-      <PropertiesForm/></div>
+      <Slider products={products}/>
+      <div className='w-full h-full flex justify-center items-center flex-wrap mt-5'>
+        <ProductList products={products}/>
+        <PropertiesForm />
+      </div>
     </>
   )
 }
