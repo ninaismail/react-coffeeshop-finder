@@ -6,7 +6,7 @@ const Thumbnail = ({ product }) => {
         <img
           src={product?.image}
           alt={product?.name}
-          className="w-full h-52 object-cover rounded-t-lg"
+          className="w-full h-72 object-cover rounded-t-lg"
         />
     );
 };

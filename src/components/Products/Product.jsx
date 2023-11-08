@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Product = ({ id, name, description, price, image }) => {
     return (
-        <div key={id} className="bg-white shadow-lg rounded-lg p-4">
+      <div key={id} className="md:w-[30%] w-1/2 bg-white shadow-lg rounded-lg p-4">
         <img
           src={image}
           alt={name}

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Product from './Product';
 const ProductList = ({products}) => {
     return (
-      <div className='md:w-1/2 w-full p-4 flex justify-center items-center flex-wrap gap-2'>
+      <div className='md:w-2/3 w-full flex justify-center items-center flex-wrap gap-[4px]'>
           {Array.isArray(products)&&products.map((product) => (
             <Product
               key={product.id}
