@@ -4,6 +4,7 @@ import ProductList from './components/Products/ProductList';
 
 import { getProducts } from './helpers/api';
 import Slider from './components/UI/Layouts/Slider';
+import TodoPractice from './components/TodoPractice';
 function App() {
 const products = getProducts()
   return (
@@ -13,6 +14,7 @@ const products = getProducts()
         <ProductList products={products}/>
         <OrdersForm />
       </div>
+      <TodoPractice/>
     </>
   )
 }
