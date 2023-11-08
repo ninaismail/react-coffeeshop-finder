@@ -1,5 +1,5 @@
 import './App.css'
-import PropertiesForm from './components/PropertiesForm'
+import OrdersForm from './components/OrdersForm'
 import ProductList from './components/Products/ProductList';
 
 import { getProducts } from './helpers/api';
@@ -11,7 +11,7 @@ const products = getProducts()
       <Slider products={products}/>
       <div className='w-full h-full flex justify-center items-center flex-wrap mt-5'>
         <ProductList products={products}/>
-        <PropertiesForm />
+        <OrdersForm />
       </div>
     </>
   )
