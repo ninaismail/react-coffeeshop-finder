@@ -1,22 +1,37 @@
-import './App.css'
-import OrdersForm from './components/OrdersForm'
-import ProductList from './components/Products/ProductList';
+import {
+  createBrowserRouter, 
+  createRoutesFromElements,
+  RouterProvider,
+  Route
+} from 'react-router-dom'
 
-import { getProducts } from './helpers/api';
-import Slider from './components/UI/Layouts/Slider';
-import TodoPractice from './components/TodoPractice';
-function App() {
-const products = getProducts()
-  return (
-    <>
-      <Slider products={products}/>
-      <div className='w-full h-full flex justify-center items-center flex-wrap mt-5'>
-        <ProductList products={products}/>
-        <OrdersForm />
-      </div>
-      <TodoPractice/>
-    </>
+import RootLayout from './layouts/RootLayout'
+
+// pages
+import Home from './pages/Home'
+import About from './pages/About'
+import Products from './pages/Products'
+import TodoPractice from './pages/TodoPractice'
+import NotFound from './pages/NotFound'
+import ProductDetails from './components/Products/ProductDetails'
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    // route / is wrapping the other routes because we want them to start with /, we can also do nested routes by making another layout with new navlinks
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="products" element={<Products />} />
+      <Route path="todo" element={<TodoPractice />} />
+      <Route path="products/:id" element={<ProductDetails />} />
+      <Route path="*" element={<NotFound />} />
+    </Route>
   )
+)
+function App() {
+  return (
+    <RouterProvider router={router} />
+  );
 }
 
 export default App

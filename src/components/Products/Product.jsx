@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-
+import { Link } from "react-router-dom"
 
 const Product = ({ id, name, description, price, image }) => {
     return (
-      <div key={id} className="md:w-[30%] w-1/2 bg-white shadow-lg rounded-lg p-4">
+      <li key={id} className="md:w-[32%] w-1/2 bg-white shadow-lg rounded-lg p-4">
         <img
           src={image}
           alt={name}
@@ -14,12 +14,13 @@ const Product = ({ id, name, description, price, image }) => {
           <p className="text-gray-700">{description}</p>
           <div className="flex items-center justify-between">
             <span className="text-green-500 font-semibold">{price}</span>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded">
-              Add to Cart
-            </button>
+            <div className='flex flex-wrap'>
+              <button className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded me-1">Add to Cart</button>
+              <Link to={`${id}`} className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded">View Product</Link>
+            </div>
           </div>
         </div>
-      </div>
+      </li>
     );
 };
   
@@ -27,7 +28,7 @@ export default Product;
 
 
 Product.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

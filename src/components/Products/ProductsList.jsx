@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Product from './Product';
 const ProductList = ({products}) => {
     return (
-      <div className='md:w-2/3 w-full flex justify-center items-center flex-wrap gap-[4px]'>
+      <ul className='w-full flex justify-center items-center flex-wrap gap-4'>
           {Array.isArray(products)&&products.map((product) => (
             <Product
               key={product.id}
@@ -15,7 +15,7 @@ const ProductList = ({products}) => {
               image={product?.image}
             />
           ))}
-      </div>
+      </ul>
     );
   };
   

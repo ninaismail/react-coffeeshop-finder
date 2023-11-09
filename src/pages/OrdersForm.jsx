@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
-import PrimaryButton from "./UI/Elements/PrimaryButton"
-import SecondaryButton from "./UI/Elements/SecondaryButton"
+import PrimaryButton from "../components/UI/Elements/PrimaryButton"
+import SecondaryButton from "../components/UI/Elements/SecondaryButton"
 
 function OrdersForm() {
     const initialData  = {
