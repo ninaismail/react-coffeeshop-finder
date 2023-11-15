@@ -14,6 +14,7 @@ import Products from './pages/Products'
 import TodoPractice from './pages/TodoPractice'
 import NotFound from './pages/NotFound'
 import ProductDetails from './components/Products/ProductDetails'
+import OrdersForm from './components/Products/OrdersForm'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="products" element={<Products />} />
       <Route path="todo" element={<TodoPractice />} />
+      <Route path="mycard" element={<OrdersForm />} />
       <Route path="products/:id" element={<ProductDetails />} />
       <Route path="*" element={<NotFound />} />
     </Route>

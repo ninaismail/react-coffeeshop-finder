@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { getProductById } from '../../helpers/api';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
     const params = useParams();
@@ -24,9 +24,7 @@ const ProductDetails = () => {
               <p className="text-gray-700">{product.description}</p>
               <div className="flex items-center justify-between">
                 <span className="text-green-500 font-semibold">{product.price}</span>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded">
-                  Add to Cart
-                </button>
+                <Link to={`/mycard`} className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded">Add To Card</Link>
               </div>
             </div>
           </>}
