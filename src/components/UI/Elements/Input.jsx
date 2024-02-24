@@ -1,6 +1,3 @@
-import PropTypes from 'prop-types';
-
-
 import { useImperativeHandle, useRef } from "react";
 const Input = (
     {id,
@@ -40,7 +37,7 @@ const Input = (
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className="h-14 px-4 placeholder:text-gray-400 placeholder:text-sm text-gray-600 border-2 border-gray-200 hover:border-blue-700 outline-none rounded-lg"
+          className="px-4 text-gray-600 border-2 border-gray-200 rounded-lg outline-none h-14 placeholder:text-gray-400 placeholder:text-sm hover:border-blue-700"
           required={required}
         />
         {required && (
@@ -57,18 +54,3 @@ const Input = (
   }
 
 export default Input;
-
-
-Input.propTypes = {
-  id: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  ref: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  required: PropTypes.bool.isRequired,
-  isValid: PropTypes.bool.isRequired,
-  validationMessage: PropTypes.number.isRequired,
-};

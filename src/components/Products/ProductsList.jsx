@@ -1,10 +1,7 @@
-import PropTypes from 'prop-types';
-
-
 import Product from './Product';
 const ProductList = ({products}) => {
     return (
-      <ul className='w-full flex justify-center items-center flex-wrap gap-4'>
+      <ul className='flex flex-wrap items-center justify-center w-full gap-4'>
           {Array.isArray(products)&&products.map((product) => (
             <Product
               key={product.id}
@@ -20,8 +17,3 @@ const ProductList = ({products}) => {
   };
   
 export default ProductList;
-
-
-ProductList.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.string).isRequired,
-};

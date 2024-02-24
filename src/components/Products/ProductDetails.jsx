@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { getProductById } from '../../helpers/api';
 import { Link, useParams } from 'react-router-dom';
 
@@ -10,21 +9,21 @@ const ProductDetails = () => {
     console.log(product)
 
     return (
-    <div className="md:w-8/12 w-full mx-auto">
+    <div className="w-full mx-auto md:w-8/12">
         <h1 className="text-2xl">Product Details</h1>
         {product &&
           <>
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-full object-cover rounded-t-lg"
+              className="object-cover w-full h-full rounded-t-lg"
             />
             <div className="space-y-2">
               <h2 className="text-xl font-semibold">{product.name}</h2>
               <p className="text-gray-700">{product.description}</p>
               <div className="flex items-center justify-between">
-                <span className="text-green-500 font-semibold">{product.price}</span>
-                <Link to={`/mycard`} className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded">Add To Card</Link>
+                <span className="font-semibold text-green-500">{product.price}</span>
+                <Link to={`/mycard`} className="px-4 py-2 text-sm font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Add To Card</Link>
               </div>
             </div>
           </>}
@@ -33,8 +32,3 @@ const ProductDetails = () => {
 };
   
 export default ProductDetails;
-
-
-ProductDetails.propTypes = {
-   id: PropTypes.string.isRequired,
-};
