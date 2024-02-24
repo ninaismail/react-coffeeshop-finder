@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
-import PrimaryButton from "../components/UI/Elements/PrimaryButton"
-import SecondaryButton from "../components/UI/Elements/SecondaryButton"
+import PrimaryButton from "../UI/Elements/PrimaryButton"
+import SecondaryButton from "../UI/Elements/SecondaryButton"
 
 function OrdersForm() {
     const initialData  = {
@@ -59,7 +59,7 @@ function OrdersForm() {
     }
 
     return (
-    <form className="md:w-1/3 w-full mx-auto p-4" onSubmit={onSubmit}>
+    <form className="w-full p-4 mx-auto md:w-1/3" onSubmit={onSubmit}>
         <label htmlFor="Name">Name:</label>
         <input 
           id="Name"
@@ -70,7 +70,7 @@ function OrdersForm() {
           onChange={(e)=>handleInputChange(e,e.target.name)}
           placeholder="Name"
           required
-          className="w-full h-14 px-4 my-2 placeholder:text-gray-400 placeholder:text-sm text-gray-600 border-2 border-gray-200 hover:border-blue-700 outline-none rounded-lg"
+          className="w-full px-4 my-2 text-gray-600 border-2 border-gray-200 rounded-lg outline-none h-14 placeholder:text-gray-400 placeholder:text-sm hover:border-blue-700"
           />
         <label htmlFor="Email">Email:</label>
         <input 
@@ -82,7 +82,7 @@ function OrdersForm() {
             onChange={(e)=>handleInputChange(e,e.target.name)}
             placeholder="Email"
             required
-            className="w-full h-14 px-4 mt-2 placeholder:text-gray-400 placeholder:text-sm text-gray-600 border-2 border-gray-200 hover:border-blue-700 outline-none rounded-lg"
+            className="w-full px-4 mt-2 text-gray-600 border-2 border-gray-200 rounded-lg outline-none h-14 placeholder:text-gray-400 placeholder:text-sm hover:border-blue-700"
             />  
         <p className="mb-2 text-[12px] text-red-500">{emailValidationMessage}</p>
         <label htmlFor="Address">Address:</label>
@@ -95,9 +95,9 @@ function OrdersForm() {
             onChange={(e)=>handleInputChange(e,e.target.name)}
             placeholder="Address"
             required
-            className="w-full h-14 px-4 my-2 placeholder:text-gray-400 placeholder:text-sm text-gray-600 border-2 border-gray-200 hover:border-blue-700 outline-none rounded-lg"
+            className="w-full px-4 my-2 text-gray-600 border-2 border-gray-200 rounded-lg outline-none h-14 placeholder:text-gray-400 placeholder:text-sm hover:border-blue-700"
         /> 
-        <div className="flex justify-end items-center gap-2">
+        <div className="flex items-center justify-end gap-2">
             <PrimaryButton label="Order"/>
             <SecondaryButton onClick={clearInputs} label="Cancel"/>
         </div>       
