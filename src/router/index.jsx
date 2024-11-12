@@ -1,4 +1,4 @@
-
+// src/routes.tsx
 import React from 'react';
 import RootLayout from './layouts/RootLayout';
 
@@ -41,11 +41,3 @@ export const routes = [
     ],
   },
 ];
-
-function App() {
-  return (
-    <RouterProvider router={routes} />
-  );
-}
-
-export default App

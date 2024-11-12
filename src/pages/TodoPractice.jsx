@@ -5,7 +5,7 @@ const todos = [
   { id:3, message: "Watch you confort movie", checked: false },
   { id:4, message: "Go on a 3KM walk", checked: true }
 ];
-export default function TodoPractice() {
+const TodoPractice = () => {
   const [todo, setTodo] = useState("");
   const [newtodos, setNewTodos] = useState(todos);
 
@@ -21,7 +21,7 @@ export default function TodoPractice() {
   };
 
   return (
-    <div className="md:w-1/3 w-1/2 mx-auto">
+    <div className="w-1/2 mx-auto md:w-1/3">
       <form onSubmit={onSubmit} className="flex gap-2">
         <input
           id="todoitem"
@@ -30,11 +30,11 @@ export default function TodoPractice() {
           value={todo}
           onChange={(e) => setTodo(e.target.value)}
           placeholder="Add a todo..."
-          className="py-2 px-4 placeholder:text-gray-400 placeholder:text-sm text-gray-600 border-2 border-gray-200 hover:border-blue-700 outline-none rounded-lg"
+          className="px-4 py-2 text-gray-600 border-2 border-gray-200 rounded-lg outline-none placeholder:text-gray-400 placeholder:text-sm hover:border-blue-700"
         />
-        <button className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded">Add</button>
+        <button className="px-4 py-2 text-sm font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Add</button>
       </form>
-      <h3 className="font-bold text-xl">My To-Do List</h3>
+      <h3 className="text-xl font-bold">My To-Do List</h3>
       <ul>
         {Array.isArray(newtodos) &&
           newtodos.map((item) => {
@@ -55,3 +55,4 @@ export default function TodoPractice() {
     </div>
   );
 }
+export default TodoPractice; // Ensure default export
