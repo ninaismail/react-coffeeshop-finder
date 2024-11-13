@@ -1,50 +1,38 @@
+import {
+  createBrowserRouter, 
+  createRoutesFromElements,
+  RouterProvider,
+  Route
+} from 'react-router-dom'
 
-import React from 'react';
-import RootLayout from './layouts/RootLayout';
+import RootLayout from './layouts/RootLayout'
 
-export const routes = [
-  {
-    path: '/',
-    element: <RootLayout />,
-    children: [
-      {
-        index: true, // Default route for "/"
-        Component: React.lazy(() => import('./pages/Home')), // Lazy load Home
-      },
-      {
-        path: 'about',
-        Component: React.lazy(() => import('./pages/About')), // Lazy load About
-      },
-      {
-        path: 'products',
-        Component: React.lazy(() => import('./pages/Products')), // Lazy load Products
-      },
-      {
-        path: 'todo',
-        Component: React.lazy(() => import('./pages/TodoPractice')), // Lazy load TodoPractice
-      },
-      {
-        path: 'mycard',
-        Component: React.lazy(() => import('./components/Products/OrdersForm')), // Lazy load OrdersForm
-      },
-      {
-        path: 'products/:id',
-        lazy: async () => {
-          const Component = (await import('./components/Products/ProductDetails')).default;
-          return { Component };
-        }, // Lazy load ProductDetails
-      },
-      {
-        path: '*', // Catch-all route for 404 pages
-        Component: React.lazy(() => import('./pages/NotFound')), // Lazy load NotFound page
-      },
-    ],
-  },
-];
+// pages
+import Home from './pages/Home'
+import About from './pages/About'
+import Products from './pages/Products'
+import TodoPractice from './pages/TodoPractice'
+import NotFound from './pages/NotFound'
+import ProductDetails from './components/Products/ProductDetails'
+import OrdersForm from './components/Products/OrdersForm'
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    // route / is wrapping the other routes because we want them to start with /, we can also do nested routes by making another layout with new navlinks
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="products" element={<Products />} />
+      <Route path="todo" element={<TodoPractice />} />
+      <Route path="mycard" element={<OrdersForm />} />
+      <Route path="products/:id" element={<ProductDetails />} />
+      <Route path="*" element={<NotFound />} />
+    </Route>
+  )
+)
 function App() {
   return (
-    <RouterProvider router={routes} />
+    <RouterProvider router={router} />
   );
 }
 
